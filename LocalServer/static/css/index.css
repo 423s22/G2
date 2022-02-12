@@ -8,6 +8,12 @@ h1 {
 	font-family: var(--font);
 }
 
+h4 {
+	color: black;
+	text-align: center;
+	font-family: var(--font);
+}
+
 p {
     color: black;
     font-family: var(--font);
@@ -18,14 +24,7 @@ p {
     border: none;
     padding: 10px;
     text-align: center;
-    width: 100%;
     cursor: pointer;
-}
-
-.button2 {
-    background-color: red;
-    border: none;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
+    display:block;
+	margin:auto;
 }

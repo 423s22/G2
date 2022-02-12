@@ -1,60 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>User and Developer Documentation</title>
+    <title>Dissertation Validator</title>
+    <link href="../static/css/documentation.css" rel="stylesheet">
 </head>
-<body>
-<p>
-      Developer Documentation
+    <body>
+        <h1>User and Developer Documentation</h1>
 
-This project is to design a validation webpage for the Montana State University graduate school to evaluate first drafts of EDT’s (dissertation). This is broken down into a parser, web backend hosted on the MSU secure servers, and a user front end for Graduate students to import their dissertations and then get feedback on formatting. This project is there to make sure that the graduate students don't have to spend as much time waiting on feedback only to be told that they have to reformat their entire dissertation.
-How to obtain the source code.
-As this project is for MSU students and faculty access only the source code must be obtained through one of the project leads. If accepted and can validate that you are attending or a member of MSU faculty on of the project leads may grant you access to the Github repository where you can clone the code to your local machine and begin working on the project. You will also be granted write privileges to the google drive folder containing the documentation.
+        <button class="button button1" onclick="window.location.href='{{url_for('index')}}';">Home</button>
 
-Important directory Information.
-For now there is only one folder of any importance is the Local server folder, which contains the Server.py file which is where the python backend for the server is found. Then it contains the templates folder which is where the HTML files are stored for the website frontend.
+        <h2>Developer Documentation</h2>
+        <p>
+        This project is to design a validation webpage for the Montana State University graduate school to evaluate first drafts of EDT’s (dissertation). This is broken down into a parser, web backend hosted on the MSU secure servers, and a user front end for Graduate students to import their dissertations and then get feedback on formatting. This project is there to make sure that the graduate students don't have to spend as much time waiting on feedback only to be told that they have to reformat their entire dissertation.
+        How to obtain the source code.
+        As this project is for MSU students and faculty access only the source code must be obtained through one of the project leads. If accepted and can validate that you are attending or a member of MSU faculty on of the project leads may grant you access to the Github repository where you can clone the code to your local machine and begin working on the project. You will also be granted write privileges to the google drive folder containing the documentation.
+        <br><br>
+        Important directory Information.
+        For now there is only one folder of any importance is the Local server folder, which contains the Server.py file which is where the python backend for the server is found. Then it contains the templates folder which is where the HTML files are stored for the website frontend.
+        <br><br>
+        Build Instructions.
+        We are building a web application so the build is just visiting the website and running the tools there. We are building in python, which compiles in the background, and is then interpreted so there is no build instructions for this project. This is a one step build, launch the website.
+        <br><br>
+        Software Testing:
+        At the moment the testing procedures are going to be launching the webpage. However in the future there will be a test suite included with the Github repository. If you are using this with the Pycharm IDE the test suite will be run with by hitting the Test command under run. This should transition to most other IDE’s.
+        <br><br>
+        Automated testing:
+        Will be added later when we have a more concrete idea of the software.
+        <br><br>
+        New version release:
+        As the project is MSU only; for a new release to be considered, please zip the version of the project that you are working on. Then submit it to one of the project leads. We will then download your release. We can then clear the release with the client and then update the Github with the new version.
+        <br><br>
+        The Github will contain a link to the google forms from the bug reporting form that is included in the website. This will then be added to a checklist of found bugs included in the google documents folder that is linked on github containing all of the known bugs. If the bug has a check next to it, it has been fixed. When you have fixed the bug please add the check next to the bug that you have fixed.
+        </p>
 
-Build Instructions.
-We are building a web application so the build is just visiting the website and running the tools there. We are building in python, which compiles in the background, and is then interpreted so there is no build instructions for this project. This is a one step build, launch the website.
-
-Software Testing:
-At the moment the testing procedures are going to be launching the webpage. However in the future there will be a test suite included with the Github repository. If you are using this with the Pycharm IDE the test suite will be run with by hitting the Test command under run. This should transition to most other IDE’s.
-
-Automated testing:
-Will be added later when we have a more concrete idea of the software.
-
-New version release:
-As the project is MSU only; for a new release to be considered, please zip the version of the project that you are working on. Then submit it to one of the project leads. We will then download your release. We can then clear the release with the client and then update the Github with the new version.
-
-The Github will contain a link to the google forms from the bug reporting form that is included in the website. This will then be added to a checklist of found bugs included in the google documents folder that is linked on github containing all of the known bugs. If the bug has a check next to it, it has been fixed. When you have fixed the bug please add the check next to the bug that you have fixed.</p>
-
-<p>
-    User Documentation
-
-This product is a validator for dissertations. It is only available to graduate students attending montana state university. This is a tool to make sure that your dissertation fits the format required by montana state. This tool is there for graduate students to limit the amount of time that they have to spend waiting on another human to evaluate all 100 to 300 pages of your dissertation and come back to you with, “The formatting is wrong here, change it and come back to me.” This assists not only the graduate student because they can get immediate feedback on the first drafts of their dissertation. It will also help the advising professor by letting them give more meaningful feedback on the content of the dissertation with less time and energy on correcting formatting mistakes.
-
-Installation Instructions:
-This service will run on a live webpage with nothing locally needed. As far as installation is concerned that will be the login procedure which is covered in the Usage Instructions section. The only prerequisite that is needed is a web browser. We recommended Microsoft Edge or Google Chrome.
-
-Usage Instructions
-Navigate to the home page
-Click on the login button in the top right corner
-Enter your MSU NetID and Password
-This will bring you to the file upload page
-You will click on the box labeled upload
-This will open your file browser, navigate to your dissertation as a word documentation(exampleETD.docx)
-Hit the large run button bellow the upload box
-The program will run and then the webpage will display the errors that were detected.
-Fix the error that is displayed.
-Hit the run button again.
-Do this process until there are no errors shown
-
-Bug Reporting:
-There will be a button at the bottom of the page labeled Report bug.
-This will open a form on the webpage.
-Fill out the form as prompted.
-
-</p>
-</body>
+        <h2>User Documentation</h2>
+        <p>
+            This product is a validator for dissertations. It is only available to graduate students attending montana state university. This is a tool to make sure that your dissertation fits the format required by montana state. This tool is there for graduate students to limit the amount of time that they have to spend waiting on another human to evaluate all 100 to 300 pages of your dissertation and come back to you with, “The formatting is wrong here, change it and come back to me.” This assists not only the graduate student because they can get immediate feedback on the first drafts of their dissertation. It will also help the advising professor by letting them give more meaningful feedback on the content of the dissertation with less time and energy on correcting formatting mistakes.
+            <br><br>
+            Installation Instructions:
+            This service will run on a live webpage with nothing locally needed. As far as installation is concerned that will be the login procedure which is covered in the Usage Instructions section. The only prerequisite that is needed is a web browser. We recommended Microsoft Edge or Google Chrome.
+            <br><br>
+            Usage Instructions:
+            <ul>
+                <li>Navigate to the home page</li>
+                <li>Click on the login button in the top right corner</li>
+                <li>Enter your MSU NetID and Password</li>
+                <li>This will bring you to the file upload page</li>
+                <li>You will click on the box labeled upload</li>
+                <li>This will open your file browser, navigate to your dissertation as a word documentation(exampleETD.docx)</li>
+                <li>Hit the large run button bellow the upload box</li>
+                <li>The program will run and then the webpage will display the errors that were detected.</li>
+                <li>Fix the error that is displayed.</li>
+                <li>Hit the run button again.</li>
+                <li>Do this process until there are no errors shown</li>
+            </ul>
+            Bug Reporting:
+            <ul>
+                <li>There will be a button at the bottom of the page labeled Report bug.</li>
+                <li>This will open a form on the webpage.</li>
+                <li>Fill out the form as prompted.</li>
+            </ul>
+            <button class="button button2" onclick="window.location.href='{{url_for('bug_report')}}';">Bug Report</button>
+    </body>
 </html>
