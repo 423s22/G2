@@ -1,6 +1,6 @@
 # G2
 Dissertation Validator
-Members: Cam, Rory, William (Chris)
+Members: Cam(fanfare22), Rory(RoryDMclean), William (Chris, chrisrosler)
 
 For our project we will be parsing through Electronic Dissertations and Theses (ETD) and ensuring the compliance to the guidelines for formatting for Montana State University's graduate school.  
 
