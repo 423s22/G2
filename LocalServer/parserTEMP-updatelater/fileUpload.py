@@ -22,7 +22,7 @@ path = "/Uploads"
 def upload_file():
     return render_template('upload.html')
 
-@app.route('/result', methods=['GET', 'POST'])
+@app.route('/result', methods=['POST'])
 def upload_file(zFile):
     if request.method == 'POST':
         fName = nameof(zFile)

@@ -1,6 +1,8 @@
 from flask import *
 from flask import Flask, render_template, request, redirect, url_for
 import fileParser
+import fileUpload
+import getResults
 
 
 app = Flask(__name__)
@@ -14,15 +16,6 @@ def index():
 @app.route('/documentation')
 def documentation():
     return render_template('documentation.html')
-
-
-@app.route('/result', methods=['POST'])
-def result():
-    if request.method == 'POST':
-        f = request.files['file']
-        f.save(f.filename)
-        return render_template('result.html', fileName=f.filename)
-
 
 @app.route('/bug_report')
 def bug_report():
