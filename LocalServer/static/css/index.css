@@ -19,6 +19,16 @@ p {
     font-family: var(--font);
 }
 
+.button2 {
+    background-color: greenyellow;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    display:block;
+	margin:auto;
+}
+
 .button1 {
     background-color: red;
     border: none;
