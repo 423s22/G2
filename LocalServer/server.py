@@ -1,8 +1,8 @@
 from flask import *
 from flask import Flask, render_template, request, redirect, url_for
 import fileParser
-import fileUpload
-import getResults
+# import fileUpload
+# import getResults
 
 
 app = Flask(__name__)
@@ -26,7 +26,7 @@ def validation():
 @app.route('/verify', methods=['POST'])
 def verify():
     if request.form.get('pass') == '1234':
-        return render_template('documentation.html')
+        return render_template('upload.html')
     else:
         return render_template('validator_login_failed.html')
 
