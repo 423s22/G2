@@ -1,3 +1,5 @@
 venv
 .idea/misc.xml
 .idea/misc.xml
+.idea/G2.iml
+*.iml
