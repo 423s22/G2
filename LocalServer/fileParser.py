@@ -21,68 +21,25 @@ class validatorMain:
             return("error")
         return(file_path)
     def readLines(self,fileName):
-        #with open(fileName, "r") as file:
-        #    first_line = file.readline()
-        #    body = file.readline()
-        #self.processBody(body)
-        # parse an xml file by name
-        file = minidom.parse('document.xml')
+        import zipfile
+        import xml.etree.ElementTree
 
-        # use getElementsByTagName() to get tag
-        models = file.getElementsByTagName('model')
+        WORD_NAMESPACE = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
+        PARA = WORD_NAMESPACE + 'p'
+        TEXT = WORD_NAMESPACE + 't'
+        TABLE = WORD_NAMESPACE + 'tbl'
+        ROW = WORD_NAMESPACE + 'tr'
+        CELL = WORD_NAMESPACE + 'tc'
 
-        # one specific item attribute
-        print('model #2 attribute:')
-        print(models[1].attributes['name'].value)
+        with zipfile.ZipFile('Completed Example ETD.docx') as docx:
+            tree = xml.etree.ElementTree.XML(docx.read('word/document.xml'))
 
-        # all item attributes
-        print('\nAll attributes:')
-        for elem in models:
-            print(elem.attributes['name'].value)
+        print(tree)
+        for text in tree.iter(TEXT):
+            print(text.text)
 
-        # one specific item's data
-        print('\nmodel #2 data:')
-        print(models[1].firstChild.data)
-        print(models[1].childNodes[0].data)
 
-        # all items data
-        print('\nAll model data:')
-        for elem in models:
-            print(elem.firstChild.data)
 
-    """def processBody(self,content):
-        tokenizedContent = []
-        #<w:t is either just that or <w:t xml preserve> other starts are tab or title page.
-        print(content.__len__())
-        textTokenDetected = False
-        skipIncrement = 0 #Used to enable better tokenizing without a while loop.
-        for i in range(len(content)):
-            if skipIncrement > 0:
-                skipIncrement -=1
-            elif textTokenDetected: #the content between language tokens
-                EOT = False
-                token = content[i]
-                increment = 0
-                while not EOT:
-                    increment +=1
-                    content += content[i+increment]
-                    if content[i+increment] == "<":
-                        EOT = True
-                        textTokenDetected = False
-                tokenizedContent.append(token)
-            elif content[i] == "<": #the content inside the tokens
-                EOT = False
-                token = content[i]
-                increment = 0
-                while not EOT:
-                    increment +=1
-                    skipIncrement +=1
-                    content += content[i+increment]
-                    if content[i+increment] == ">":
-                        EOT = True
-                tokenizedContent.append(token)
-                if token.__contains__("<w:t>") or token.__contains__("<w:t xml:space=\"preserve\">"):
-                    textTokenDetected = True"""
 if __name__ == '__main__': #Code to test fileParser independently
     validate = validatorMain()
     validate.readLines("C:\\null.txt")
