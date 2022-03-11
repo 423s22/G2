@@ -1,9 +1,10 @@
 from zipfile import ZipFile
 import os
 
-def renameZip(zFile):
-    fName = zFile.filename
+def renameZip(fileName):
+    fName = fileName
     os.rename(fName, fName + '.zip')
+    print(fName + 'renamedFile')
 
 def extractZip(zFile):
     path = '/UnpackedDissertations'
