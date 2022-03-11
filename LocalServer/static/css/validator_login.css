@@ -1,0 +1,12 @@
+body {
+	padding: 20px;
+}
+
+#password {
+	font-weight: bold;
+}
+
+#try_again {
+    font-weight: bold;
+    color: red;
+}

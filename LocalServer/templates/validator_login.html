@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+	<meta charset="utf-8">
+	<head>
+	  <meta charset="utf-8">
+	  <title>Validator Login</title>
+	  <link rel="stylesheet" href="../static/css/stylesf181.css">
+		<link rel="stylesheet" href="../static/css/validator_login.css">
+		<link rel="icon" sizes="192x192" href="../static/images/msu-icon.png" />
+	</head>
+
+	<body>
+		<div class="Login-header">
+			<h1 id="Login-title">Login-Thesis/Dissertation Validation Portal</h1>
+		</div>
+		<div class="Login-body">
+			<b>Graduate School ETD upload portal</b>
+			<br>
+			This web application is for current graduate students to validate their thesis or dissertation without sumbitting it to the formatting advisor.  If you have questions regarding this process contact
+			<a href="mailto:gradformatting@montana.edu">gradformatting@montana.edu</a>
+
+			<form action="/verify" method = "POST">
+				<p id="password">Password: <br> <input type = "text" name = "pass" /></p>
+				<p><input type = "submit" value = "Login" /></p>
+			</form>
+		</div>
+	</body>
+</html>

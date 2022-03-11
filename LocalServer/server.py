@@ -16,6 +16,19 @@ def documentation():
     return render_template('documentation.html')
 
 
+@app.route('/validation')
+def validation():
+    return render_template('validator_login.html')
+
+
+@app.route('/verify', methods=['POST'])
+def verify():
+    if request.form.get('pass') == '1234':
+        return render_template('documentation.html')
+    else:
+        return render_template('validator_login_failed.html')
+
+
 @app.route('/result', methods=['POST'])
 def result():
     if request.method == 'POST':
