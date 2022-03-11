@@ -1,5 +1,8 @@
 from pathlib import Path
-from xml.dom import minidom
+import zipfile
+import xml.etree.ElementTree
+
+
 class fileParser:
     def __init__(self, fileName):
         self.name = fileName
@@ -21,8 +24,7 @@ class validatorMain:
             return("error")
         return(file_path)
     def readLines(self,fileName):
-        import zipfile
-        import xml.etree.ElementTree
+
 
         WORD_NAMESPACE = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
         PARA = WORD_NAMESPACE + 'p'
@@ -35,8 +37,13 @@ class validatorMain:
             tree = xml.etree.ElementTree.XML(docx.read('word/document.xml'))
 
         print(tree)
-        for text in tree.iter(TEXT):
-            print(text.text)
+        for var in tree.iter(PARA):
+            if var.attrib:
+                print(var.attrib)
+                for i in (var.attrib.keys()):
+                    print(i)
+
+
 
 
 
