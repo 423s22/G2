@@ -4,3 +4,6 @@ venv
 .idea/G2.iml
 *.iml
 .idea/G2.iml
+LocalServer/__pycache__/fileParser.cpython-39.pyc
+LocalServer/__pycache__/fileZipHelper.cpython-39.pyc
+LocalServer/__pycache__/paragraph.cpython-39.pyc
