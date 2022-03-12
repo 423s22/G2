@@ -5,6 +5,8 @@ class paragraph:
         self.fonts = ""
         self.caps = False
         self.text = ""
-
+    def processContent(self):
+        if self.caps == True:
+            self.text = self.text.upper()
 
 

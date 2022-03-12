@@ -38,8 +38,10 @@ class validatorMain:
                     newParagraph.textId = var.attrib["{http://schemas.microsoft.com/office/word/2010/wordml}textId"]
                 elif str(var.tag) == "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}caps":
                     newParagraph.caps = True
+                elif str(var.tag) == "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}t":
+                    newParagraph.text += var.text
                 else:
-                    print(var.tag)
+                    pass#print(var.tag)
             else:#Used to instantiate your first paragraph
                 if str(var.tag) == "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}p":
                     newParagraph.paraId = var.attrib["{http://schemas.microsoft.com/office/word/2010/wordml}textId"]
@@ -47,13 +49,25 @@ class validatorMain:
                     activeParagraph = True
 
         for i in document:
-            print(i.paraId)
+            i.processContent()
+            print(i.text)
         self.validate(document)
     def validate(self,document):
-        #Check first couple paras are capitalized
-        #Determine
-        open('')
+        fp = open('Changes/requiredChanges.txt', 'w')
+        byLine = 0
+        for i in range(4): #Ensure the by line exists, and then that the preceeding lines are capitalized. Maximum length = 4 lines.
+            if document[i].text == "by":
+                byLine = i
+        for i in range(byLine):
+            if document[i].caps == False:
+                fp.write('All title lines must be completely capitalized ')
+                break
+        if byLine == 0:
+            fp.write('Missing line {by}')
+            fp.write('Fix this first and disregard subsequent errors')
 
+        fp.write('ISSUE Comment Here')
+        fp.close()
 
 
 
