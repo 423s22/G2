@@ -19,7 +19,7 @@ def evaluate_file():
     # This is where the parser will be called something like
     # path_evaluated = parser.parseDisertation(fileToEval)
 
-    path_evaluated = '/Changes'                         # For Testing Only, the parser will return the full path with file name in the end
+    path_evaluated = 'Changes'  # For Testing Only, the parser will return the full path with file name in the end
     fTest = open('exampleChanges', 'w')                 # Testing
     fTest.write('These are some example Changes')       # Testing
     fTest.close()                                       # Testing

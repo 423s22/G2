@@ -1,9 +1,11 @@
+import os
+
 from flask import *
 from flask import Flask, render_template, request, redirect, url_for
 import fileParser
 # import fileUpload
 # import getResults
-
+from LocalServer import fileZipHelper
 
 app = Flask(__name__)
 
@@ -31,13 +33,47 @@ def verify():
         return render_template('validator_login_failed.html')
 
 
-@app.route('/result', methods=['POST'])
-def result():
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    path = 'Uploads/'
     if request.method == 'POST':
         f = request.files['file']
-        f.save(f.filename)
-        return render_template('result.html', fileName=f.filename)
+        f.save(os.path.join(path, f.filename))
+        fileZipHelper.renameZip(f.filename)
+        fileZipHelper.extractZip(f.filename)
 
+@app.route('/result', methods=['GET'])
+def evaluate_file():
+    path_unpacked = '/UnpackedDissertations'
+    path_packed = '/Uploads'
+
+    fileTMP = os.listdir(path_packed)
+    fileToEval = fileTMP[0] #This makes sure that the parser can be passed the acccurate filename for the current working file
+
+    # This is where the parser will be called something like
+    # path_evaluated = parser.parseDisertation(fileToEval)
+
+    path_evaluated = 'Changes/'  # For Testing Only, the parser will return the full path with file name in the end
+    fTest = open('Changes/exampleChanges.txt', 'w')                 # Testing
+    fTest.write('These are some example Changes')       # Testing
+    fTest.close()                                       # Testing
+    evalTMP = os.listdir(path_evaluated)
+    fileEvaled = evalTMP[0]
+
+    if os.path.exists(fileToEval):
+        os.remove('Uploads/' + fileToEval)
+    else:
+        abort(404)
+
+    if os.path.exists(fileEvaled):
+        os.remove(fileEvaled)
+    else:
+        abort(404)
+
+    try:
+        return send_file('Changes/exampleChanges.txt')
+    except FileNotFoundError:
+        abort(404)
 
 @app.route('/bug_report')
 def bug_report():
