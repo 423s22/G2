@@ -7,7 +7,7 @@ def renameZip(fileName):
     print(fName + 'renamedFile')
 
 def extractZip(zFile):
-    path = '/UnpackedDissertations'
+    path = '/Unpacked'
     z = zFile
     with ZipFile(z, 'r') as zip:
         zip.extractall(path)

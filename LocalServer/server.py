@@ -53,11 +53,11 @@ def evaluate_file():
     # This is where the parser will be called something like
     # path_evaluated = parser.parseDisertation(fileToEval)
 
-    path_evaluated = 'Changes/'  # For Testing Only, the parser will return the full path with file name in the end
-    fTest = open('Changes/exampleChanges.txt', 'w')                 # Testing
+    path_evaluatedTMP = 'Changes/'                         # For Testing Only, the parser will return the full path with file name in the end
+    fTest = open('Changes/exampleChanges.txt', 'w')     # Testing
     fTest.write('These are some example Changes')       # Testing
     fTest.close()                                       # Testing
-    evalTMP = os.listdir(path_evaluated)
+    evalTMP = os.listdir(path_evaluatedTMP)
     fileEvaled = evalTMP[0]
 
     if os.path.exists(fileToEval):
@@ -70,6 +70,8 @@ def evaluate_file():
     else:
         abort(404)
 
+    # When parsing is complete change the green text in send file to the path_evaluated var declared above
+    # That should cause the website to download the file the parser spit out
     try:
         return send_file('Changes/exampleChanges.txt')
     except FileNotFoundError:
