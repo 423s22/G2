@@ -36,11 +36,13 @@ def verify():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     path = 'Uploads/'
+    unpack_path = 'Unpacked/'
     if request.method == 'POST':
         f = request.files['file']
         f.save(os.path.join(path, f.filename))
         fileZipHelper.renameZip(f.filename)
-        fileZipHelper.extractZip(f.filename)
+        fileZipHelper.extractZip(path + f.filename + '.zip')
+        return render_template('result.html')
 
 @app.route('/result', methods=['GET'])
 def evaluate_file():
@@ -53,7 +55,7 @@ def evaluate_file():
     # This is where the parser will be called something like
     # path_evaluated = parser.parseDisertation(fileToEval)
 
-    path_evaluatedTMP = 'Changes/'                         # For Testing Only, the parser will return the full path with file name in the end
+    path_evaluatedTMP = 'Changes/'                      # For Testing Only, the parser will return the full path with file name in the end
     fTest = open('Changes/exampleChanges.txt', 'w')     # Testing
     fTest.write('These are some example Changes')       # Testing
     fTest.close()                                       # Testing
