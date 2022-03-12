@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from flask import *
 from flask import Flask, render_template, request, redirect, url_for
@@ -56,16 +57,16 @@ def evaluate_file():
     # path_evaluated = parser.parseDisertation(fileToEval)
 
     validate = fileParser.validatorMain()
-    validate.readLines('Uploads/' + fileToEval)
+    validate.parse('Uploads/' + fileToEval)
 
-    send_file('Changes/requiredChanges.txt')
+    shutil.rmtree('Unpacked')
+    os.mkdir('Unpacked')
 
     os.remove('Uploads/' + fileToEval)
-    os.remove('Changes/requiredChanges.txt')
     # When parsing is complete change the green text in send file to the path_evaluated var declared above
     # That should cause the website to download the file the parser spit out
     try:
-        return render_template('index.html')
+        return send_file('Changes/requiredChanges.txt', as_attachment=True)
     except FileNotFoundError:
         abort(404)
 
