@@ -4,27 +4,8 @@ import xml.etree.ElementTree
 import paragraph
 
 
-class fileParser:
-    def __init__(self, fileName):
-        self.name = fileName
-    def parseFile(self):
-        print("File has been parsed: " + self.name)
-        resultsFileName = (self.name+"results.txt")
-        print("ResultsFilePostedAs: " + resultsFileName)
 class validatorMain:
-    def processFileAddress(self):
-        fileName = input("Please enter the address of the file:")
-        file_path = Path(fileName)
-        print(fileName)
-        print(file_path + " file")
-        try:
-            open(file_path)
-            self.readLines(file_path)
-        except:
-            print("File address error")
-            return("error")
-        return(file_path)
-    def readLines(self,fileName):
+    def parse(self,fileName):
         with zipfile.ZipFile(fileName) as docx:
             tree = xml.etree.ElementTree.XML(docx.read('word/document.xml'))
         activeParagraph = False
@@ -54,19 +35,25 @@ class validatorMain:
         self.validate(document)
     def validate(self,document):
         fp = open('Changes/requiredChanges.txt', 'w')
+        empty = True
         byLine = 0
         for i in range(4): #Ensure the by line exists, and then that the preceeding lines are capitalized. Maximum length = 4 lines.
             if document[i].text == "by":
                 byLine = i
         for i in range(byLine):
             if document[i].caps == False:
+                empty = False
                 fp.write('All title lines must be completely capitalized ')
                 break
         if byLine == 0:
+            empty = False
             fp.write('Missing line {by}')
             fp.write('Fix this first and disregard subsequent errors')
+        if empty:
+            fp.write("All good")
+            fp.close
+            return True
 
-        fp.write('ISSUE Comment Here')
         fp.close()
 
 
@@ -74,4 +61,4 @@ class validatorMain:
 
 if __name__ == '__main__': #Code to test fileParser independently
     validate = validatorMain()
-    validate.readLines("Completed Example ETD.docx")
+    validate.parse("Completed Example ETD.docx")
