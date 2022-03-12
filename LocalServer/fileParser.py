@@ -31,7 +31,7 @@ class validatorMain:
 
         for i in document:
             i.processContent()
-            print(i.text)
+            #print(i.text)
         self.validate(document)
     def validate(self,document):
         fp = open('Changes/requiredChanges.txt', 'w')
@@ -61,4 +61,4 @@ class validatorMain:
 
 if __name__ == '__main__': #Code to test fileParser independently
     validate = validatorMain()
-    validate.parse("Completed Example ETD.docx")
+    validate.parse("Completed_Example_ETD.docx")
