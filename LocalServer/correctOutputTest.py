@@ -3,7 +3,7 @@ import fileParser
 
 def testValidDocValidates():
     validate = fileParser.validatorMain()
-    validate.parse("423s22/G2/LocalServer/Completed_Example_ETD.docx")
+    validate.parse("Completed_Example_ETD.docx")
     fp = open("Changes/requiredChanges.txt")
     firstLine = fp.readline()
     assert "All good" in firstLine
