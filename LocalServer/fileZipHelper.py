@@ -1,10 +1,12 @@
+import shutil
 from zipfile import ZipFile
 import os
 
 
 def renameZip(fileName):
     fName = fileName
-    os.rename('Uploads/' + fName,'Uploads/' + fName + '.zip')
+    shutil.copyfile('Uploads/' + fileName, 'Uploads/temp.docx')
+    extractZip('Uploads/temp.docx')
     print(fName + 'renamedFile')
 
 
