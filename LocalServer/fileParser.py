@@ -1,6 +1,7 @@
 from pathlib import Path
 import zipfile
 import xml.etree.ElementTree
+import paragraph
 
 
 class fileParser:
@@ -24,24 +25,34 @@ class validatorMain:
             return("error")
         return(file_path)
     def readLines(self,fileName):
-
-
-        WORD_NAMESPACE = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
-        PARA = WORD_NAMESPACE + 'p'
-        TEXT = WORD_NAMESPACE + 't'
-        TABLE = WORD_NAMESPACE + 'tbl'
-        ROW = WORD_NAMESPACE + 'tr'
-        CELL = WORD_NAMESPACE + 'tc'
-
-        with zipfile.ZipFile('Completed Example ETD.docx') as docx:
+        with zipfile.ZipFile(fileName) as docx:
             tree = xml.etree.ElementTree.XML(docx.read('word/document.xml'))
+        activeParagraph = False
+        newParagraph = paragraph.paragraph("NULL")
+        document = []
+        for var in tree.iter():#Iterate through the entire tree
+            if activeParagraph:#After teh first paragraph is instantiated, general case
+                if str(var.tag) == "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}p":
+                    document.append(newParagraph)
+                    newParagraph = paragraph.paragraph(var.attrib["{http://schemas.microsoft.com/office/word/2010/wordml}paraId"])
+                    newParagraph.textId = var.attrib["{http://schemas.microsoft.com/office/word/2010/wordml}textId"]
+                elif str(var.tag) == "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}caps":
+                    newParagraph.caps = True
+                else:
+                    print(var.tag)
+            else:#Used to instantiate your first paragraph
+                if str(var.tag) == "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}p":
+                    newParagraph.paraId = var.attrib["{http://schemas.microsoft.com/office/word/2010/wordml}textId"]
+                    newParagraph.textId = var.attrib["{http://schemas.microsoft.com/office/word/2010/wordml}paraId"]
+                    activeParagraph = True
 
-        print(tree)
-        for var in tree.iter(PARA):
-            if var.attrib:
-                print(var.attrib)
-                for i in (var.attrib.keys()):
-                    print(i)
+        for i in document:
+            print(i.paraId)
+        self.validate(document)
+    def validate(self,document):
+        #Check first couple paras are capitalized
+        #Determine
+        open('')
 
 
 
@@ -49,4 +60,4 @@ class validatorMain:
 
 if __name__ == '__main__': #Code to test fileParser independently
     validate = validatorMain()
-    validate.readLines("C:\\null.txt")
+    validate.readLines("Completed Example ETD.docx")
