@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import fileParser
 # import fileUpload
 # import getResults
-from LocalServer import fileZipHelper
+import fileZipHelper
 
 app = Flask(__name__)
 
