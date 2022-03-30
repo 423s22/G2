@@ -1,30 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
+<head>
 	<meta charset="utf-8">
-	<head>
-	  <meta charset="utf-8">
-	  <title>Validator Login</title>
-	  <link rel="stylesheet" href="../static/css/stylesf181.css">
-		<link rel="stylesheet" href="../static/css/validator_login.css">
-		<link rel="icon" sizes="192x192" href="../static/images/msu-icon.png" />
-	</head>
-
-	<body>
-		<div class="Login-header">
-			<h1 id="Login-title">Login-Thesis/Dissertation Validation Portal</h1>
+	<title>ETD Validation</title>
+	<link href="../static/css/stylesf181.css?d=20210902" rel="stylesheet" media="screen" />
+	<link rel="stylesheet" href="../static/css/validator_login.css">
+	<link rel="icon" sizes="192x192" href="../static/images/msu-icon.png" />
+</head>
+<body>
+<header class="wrapper" id="header" role="banner">
+	<div class="container" id="banner">
+		<img class="visible-print" src="../static/images/msublackhorizsm.png" height="63" width="250" alt="../static/images/msublackhorizsm.png">
+		<div class="row clearfix hidden-print">
+			<div class="col-sm-12 cf">
+				<div class="row">
+					<div class="col-sm-4 col-md-6 column pull-right text-right hidden-xs nav pull-right text-left" id="header-tools">
+						<div class="row clearfix">
+							<div id="searchbox" class="col-md-6 col-lg-6 col-sm-12 text-right column search pull-right" role="search">
+								<div class="row">
+									<div class="col-md-12">
+										<form id="search" method="get" action="https://www.montana.edu/search/" class="form-horizontal" role="search">
+											<div class="input-group input-group-sm">
+												<label for="srch-term" class="sr-only">Search</label>
+												<input type="search" id="srch-term" name="q" class="form-control" placeholder="Search pages &amp; people">
+												<span class="input-group-btn">
+															<button class="btn btn-default btn-search" name="sa" type="submit">
+																<span class="fa fa-search">
+																	<span class="sr-only">Search</span>
+																</span>
+															</button>
+														</span>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="stick" data-spy="affix" data-offset-top="125" class="affix-top">
+						<ul class="siteheaderlinks">
+							<li id="sitelogo">
+								<a class="navbar-brand" href="https://www.montana.edu/">
+									<img src="../static/images/MSU-horiz-reverse-web-header.svg" alt="../Montana State University in Bozeman" title="Montana State University in Bozeman" height="44" width="174">
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="Login-body">
-			<b>Graduate School ETD upload portal</b>
-			<br>
-			This web application is for current graduate students to validate their thesis or dissertation without sumbitting it to the formatting advisor.  If you have questions regarding this process contact
-			<a href="mailto:gradformatting@montana.edu">gradformatting@montana.edu</a>
+	</div>
+</header>
+<div class="container" id="content">
+	<div class="Login-header">
+		<h1 id="Login-title">Login-Thesis/Dissertation Validation Portal</h1>
+	</div>
+	<div class="Login-body">
+		<b>Graduate School ETD upload portal</b>
+		<br>
+		This web application is for current graduate students to validate their thesis or dissertation without sumbitting it to the formatting advisor.  If you have questions regarding this process contact
+		<a href="mailto:gradformatting@montana.edu">gradformatting@montana.edu</a>
 
-			<p id="try_again">Password is incorrect.</p>
+		<p id="try_again">Password is incorrect.</p>
 
-			<form action="/verify" method = "POST">
-				<p id="password">Password: <br> <input type = "text" name = "pass" /></p>
-				<p><input type = "submit" value = "Login" /></p>
-			</form>
+		<form action="/verify" method = "POST">
+			<p id="password">Password: <br> <input type = "text" name = "pass" /></p>
+			<p><input type = "submit" value = "Login" /></p>
+		</form>
+	</div>
+	<div class="Beta Release assignment requirements">
+		<a href="\documentation">Documentation</a>
+
+	</div>
+</div>
+<footer class="hidden-print" id="footer">
+	<div class="inner-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-sm-3 col-xs-6 col-ts-12">
+							<ul>
+								<li>
+									<h3>More Information</h3>
+								</li>
+								<li><a href="https://www.montana.edu/admissions/" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Audience - Admissions']);">Admissions</a></li>
+								<li><a href="https://www.msuaf.org/" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Audience - Alumni']);">Alumni</a></li>
+								<li><a href="https://www.montana.edu/students/index.html" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Audience - Current Students']);">Current Students</a></li>
+								<li><a href="http://www.montana.edu/fs/" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Audience - Faculty Staff']);">Faculty &amp; Staff</a></li>
+								<li><a href="https://www.montana.edu/parents/index.html" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Audience - Parents Family']);">Parents &amp; Family</a></li>
+								<li><a href="https://www.montana.edu/sustainability/index.html" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Audience - Sustainability']);">Sustainability</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-3 col-xs-6 col-ts-12">
+							<ul>
+								<li>
+									<h3>Resources</h3>
+								</li>
+								<li><a href="https://www.montana.edu/accessibility/" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Resources - Accessibility']);">Accessibility</a></li>
+								<li><a href="https://www.montana.edu/contact/" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Resources - Contact']);">Contact&nbsp;List</a></li>
+								<li><a href="https://www.montana.edu/search/employees.html?mus.q=&amp;gsc.q=&amp;mus.d=" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Resources - Directories']);">Directories</a></li>
+								<li><a href="https://www.montana.edu/diversity/index.html" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Resources - Diversity Inclusion']);">Diversity &amp; Inclusion</a></li>
+								<li><a href="https://jobs.montana.edu/" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Resources - Jobs']);">Jobs</a></li>
+								<li><a href="https://www.montana.edu/legalcounsel/legal-privacy/index.html" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Resources - Legal and Privacy Policy']);">Legal &amp; Privacy Policy</a></li>
+								<li><a href="https://www.montana.edu/siteindex/" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Resources - Site Index']);">Site&nbsp;Index</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-3 col-xs-6 col-ts-12">
+							<ul>
+								<li>
+									<h3>Follow Us</h3>
+								</li>
+								<li class="social-horizontal">
+									<a title="Montana State on Facebook" href="https://www.facebook.com/montanastate" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Social - Facebook']);">
+												<span class="fa fa-facebook-square">
+													<span class="sr-only">Facebook</span>
+												</span>
+									</a>
+									<a title="Montana State on Twitter" href="https://twitter.com/montanastate" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Social - Twitter']);">
+												<span class="fa fa-twitter">
+													<span class="sr-only">Twitter</span>
+												</span>
+									</a>
+									<a title="Montana State on YouTube" href="https://www.youtube.com/user/montanastateu" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Social - YouTube']);">
+												<span class="fa fa-youtube-play">
+													<span class="sr-only">YouTube</span>
+												</span>
+									</a>
+									<a title="Montana State on Instagram" href="http://instagram.com/montanastateuniversity" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Social - Instagram']);">
+												<span class="fa fa-instagram">
+													<span class="sr-only">Instagram</span>
+												</span>
+									</a>
+									<a title="Montana State on LinkedIn" href="https://www.linkedin.com/edu/montana-state-university-bozeman-18753" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - Social - LinkedIn']);">
+												<span class="fa fa-linkedin">
+													<span class="sr-only">LinkedIn</span>
+												</span>
+									</a>
+								</li>
+							</ul>
+							<p>Located in
+								<a href="http://www.montana.edu/about/bozeman/" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - About Bozeman']);">Bozeman, MT</a>
+							</p>
+							<p>For questions or comments contact the <br />
+								<a href="https://www.montana.edu/askus/" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - MSU Support']);">Ask Us Desk</a>.
+							</p>
+						</div>
+						<div class="col-sm-3 col-xs-6 col-ts-12">
+							<div class="brand muted pull-right">
+								<a href="https://www.montana.edu/" onclick="_gaq.push(['msu._trackEvent', 'HomePage', 'Click', 'Footer - MSU Logo']); ">
+									<img src="../static/images/msulogo-reverse-footer.png" alt="../Montana State University: Mountains and Minds">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</body>
+	</div>
+</footer>
+<script type="text/javascript">
+	document.getElementById("dropdown").classList.add("drop");
+	document.getElementById("dropdown").addEventListener("click", dropOrOpen);
+</script>
+</body>
 </html>
