@@ -40,6 +40,7 @@ class validatorMain:
         for i in range(4): #Ensure the by line exists, and then that the preceeding lines are capitalized. Maximum length = 4 lines.
             if document[i].text == "by":
                 byLine = i
+                break
         for i in range(byLine):
             if document[i].caps == False:
                 empty = False
@@ -48,7 +49,37 @@ class validatorMain:
         if byLine == 0:
             empty = False
             fp.write('Missing line {by}')
-            fp.write('Fix this first and disregard subsequent errors')
+            fp.write('Fix this first and disregard subsequent errors\n')
+        if not document[byLine+2].text.__contains__("submitted in partial fulfillment") and document[byLine+3].text.__contains__("of the requirements for the degree"):
+            empty = False
+            fp.write('Document must contain proper cause of submission\n')
+        if not document[byLine+4].text == "of":
+            empty = False
+            fp.write('Missing of line prior to appropriate degree\n')
+        if not document[byLine+5].text.__contains__("Master") and not document[byLine+5].text.__contains__("Doctorate") :
+            empty = False
+            fp.write('Missing appropriate degree\n')
+
+        if not document[byLine+6].text == "in":
+            empty = False
+            print(document[byLine+6].text)
+            fp.write('Missing \"in\" line prior to program name\n')
+        if not document[byLine+8].text == "MONTANA STATE UNIVERSITY" :
+            empty = False
+            fp.write('Missing university, or university not formatted correctly (All Capitalized)\n')
+        if not checkDateFormat(document[byLine + 9].text):
+            empty = False
+            print(document[byLine+10].text)
+            fp.write('Date is formatted as month written out and first letter capitalized, then year\n')
+        if not document[byLine+11].text.__contains__("COPYRIGHT"):
+            empty = False
+            fp.write('Missing copyright')
+        if not document[byLine+12].text.__contains__("by"):
+            empty = False
+            fp.write('Missing by after copyright\n')
+        if not document[byLine+13].text == document[byLine+1]:
+            empty = False
+            fp.write('Missing name consistency\n')
         if empty:
             fp.write("All good")
             fp.close
@@ -57,8 +88,14 @@ class validatorMain:
         fp.close()
 
 
-
-
+def checkDateFormat(line):
+    if line.__contains__("January") or line.__contains__("February")or line.__contains__("March")or line.__contains__("April")or line.__contains__("May")or line.__contains__("June")or line.__contains__("July")or line.__contains__("August")or line.__contains__("September")or line.__contains__("October")or line.__contains__("November")or line.__contains__("December"):
+        if line.__contains__("2022") or line.__contains__("2023"):
+            return True
+        else:
+            return False
+    else:
+        return False
 if __name__ == '__main__': #Code to test fileParser independently
     validate = validatorMain()
     validate.parse("Completed_Example_ETD.docx")

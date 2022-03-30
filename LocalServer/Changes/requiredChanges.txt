@@ -1,1 +1,3 @@
-All title lines must be completely capitalized 
+Date is formatted as month written out and first letter capitalized, then year
+Missing copyrightMissing by after copyright
+Missing name consistency
