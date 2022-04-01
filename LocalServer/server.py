@@ -26,15 +26,23 @@ def validation():
     return render_template('validator_login.html')
 
 
+@app.route('/upload')
+def upload():
+    if request.values.get('valid'):
+        return render_template('upload.html')
+    else:
+        return redirect('/validation')
+
+
 @app.route('/verify', methods=['POST'])
 def verify():
     if request.form.get('pass') == '1234':
-        return render_template('upload.html')
+        return redirect(url_for('upload', valid=True))
     else:
         return render_template('validator_login_failed.html')
 
 
-@app.route('/upload', methods=['POST'])
+@app.route('/upload_file', methods=['POST'])
 def upload_file():
     path = 'Uploads/'
     unpack_path = 'Unpacked/'
@@ -69,6 +77,7 @@ def evaluate_file():
         return send_file('Changes/requiredChanges.txt', as_attachment=True)
     except FileNotFoundError:
         abort(404)
+
 
 @app.route('/bug_report')
 def bug_report():
