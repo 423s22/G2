@@ -52,6 +52,7 @@ def upload_file():
         fileZipHelper.renameZip(f.filename)
         return render_template('result.html')
 
+
 @app.route('/result', methods=['GET'])
 def evaluate_file():
     path_unpacked = 'Unpacked/'
@@ -74,7 +75,9 @@ def evaluate_file():
     # When parsing is complete change the green text in send file to the path_evaluated var declared above
     # That should cause the website to download the file the parser spit out
     try:
-        return send_file('Changes/requiredChanges.txt', as_attachment=True)
+        fileZipHelper.send_File('Changes/requiredChanges.txt')
+        return render_template('upload.html')
+        # return send_file('Changes/requiredChanges.txt', as_attachment=True)
     except FileNotFoundError:
         abort(404)
 

@@ -2,6 +2,14 @@ import shutil
 from zipfile import ZipFile
 import os
 
+from flask import send_file, abort
+
+
+def send_File(filePath):
+    try:
+        return send_file(filePath, as_attachment=True)
+    except FileNotFoundError:
+        abort(404)
 
 def renameZip(fileName):
     fName = fileName

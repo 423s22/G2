@@ -4,9 +4,11 @@ import parser
 
 app = Flask(__name__)
 
+
 @app.route('/result')
 def evaluate_file():
-    render_template('result.html')
+    return render_template('upload.html')
+
 
 @app.route('/result', methods=['GET'])
 def evaluate_file():
@@ -14,7 +16,7 @@ def evaluate_file():
     path_packed = '/Uploads'
 
     fileTMP = os.listdir(path_packed)
-    fileToEval = fileTMP[0] #This makes sure that the parser can be passed the acccurate filename for the current working file
+    fileToEval = fileTMP[0] # This makes sure that the parser can be passed the acccurate filename for the current working file
 
     # This is where the parser will be called something like
     # path_evaluated = parser.parseDisertation(fileToEval)
@@ -40,6 +42,8 @@ def evaluate_file():
         os.remove(fileEvaled)
     else:
         abort(404)
+
+
 
 
 
