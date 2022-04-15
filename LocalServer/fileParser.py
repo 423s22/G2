@@ -80,6 +80,13 @@ class validatorMain:
         if not document[byLine+13].text == document[byLine+1]:
             empty = False
             fp.write('Missing name consistency\n')
+        if not document[byLine+14].text == "Year":
+            empty = False
+            fp.write('Missing year\n')
+        if not document[byLine+15].text == "All Rights Reserved":
+            empty = False
+            fp.write('Missing All Rights Reserved\n')
+
         if empty:
             fp.write("All good")
             fp.close

@@ -7,3 +7,6 @@ venv
 LocalServer/__pycache__/fileParser.cpython-39.pyc
 LocalServer/__pycache__/fileZipHelper.cpython-39.pyc
 LocalServer/__pycache__/paragraph.cpython-39.pyc
+*.pyc
+LocalServer/Changes/requiredChanges.txt
+*.pyc
