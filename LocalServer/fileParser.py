@@ -25,8 +25,8 @@ class validatorMain:
                 elif str(var.tag) == "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}proofErr":
                     newParagraph.proofErr = True
                 else:
-                    #pass#
-                    print(var.tag)
+                    pass#
+                    #print(var.tag)
                     #print(var.attrib)
             else:#Used to instantiate your first paragraph
                 if str(var.tag) == "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}p":
@@ -83,18 +83,18 @@ class validatorMain:
             lineVar = byLine
             while document[byLine + 11].text == "":
                 byLine +=1
-            print(document[byLine + 11].text)
+            #print(document[byLine + 11].text)
             if not document[byLine+11].text.__contains__("COPYRIGHT"):
                 empty = False
-                print(document[byLine+11].text)
+                #print(document[byLine+11].text)
                 fp.write('Missing copyright\n')
             if not document[byLine+12].text.__contains__("by"):
                 empty = False
                 fp.write('Missing by after copyright\n')
             if not document[byLine+13].text == document[lineVar+1].text:
                 empty = False
-                print(document[byLine+13].text)
-                print(document[lineVar+1].text)
+                #print(document[byLine+13].text)
+                #print(document[lineVar+1].text)
                 fp.write('Missing name consistency\n')
             if not document[byLine+14].text == "2022" and not document[byLine+14].text == "2023":
                 empty = False
@@ -108,9 +108,9 @@ class validatorMain:
             while document[endLine].text != "References":
                 endLine +=1
             body = copy.deepcopy(document[byLine:endLine])
-            print(byLine)
-            print(endLine)
-            print(len(body))
+            #print(byLine)
+            #print(endLine)
+            #print(len(body))
             for j in range(len(body)):
                 if body[j].proofErr:
                     empty = False
