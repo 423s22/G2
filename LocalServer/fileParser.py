@@ -37,60 +37,63 @@ class validatorMain:
         fp = open('Changes/requiredChanges.txt', 'w')
         empty = True
         byLine = 0
-        for i in range(4): #Ensure the by line exists, and then that the preceeding lines are capitalized. Maximum length = 4 lines.
-            if document[i].text == "by":
-                byLine = i
-                break
-        for i in range(byLine):
-            if document[i].caps == False:
+        try:
+            for i in range(4): #Ensure the by line exists, and then that the preceeding lines are capitalized. Maximum length = 4 lines.
+                if document[i].text == "by":
+                    byLine = i
+                    break
+            for i in range(byLine):
+                if document[i].caps == False:
+                    empty = False
+                    fp.write('All title lines must be completely capitalized ')
+                    break
+            if byLine == 0:
                 empty = False
-                fp.write('All title lines must be completely capitalized ')
-                break
-        if byLine == 0:
-            empty = False
-            fp.write('Missing line {by}')
-            fp.write('Fix this first and disregard subsequent errors\n')
-        if not document[byLine+2].text.__contains__("submitted in partial fulfillment") and document[byLine+3].text.__contains__("of the requirements for the degree"):
-            empty = False
-            fp.write('Document must contain proper cause of submission\n')
-        if not document[byLine+4].text == "of":
-            empty = False
-            fp.write('Missing of line prior to appropriate degree\n')
-        if not document[byLine+5].text.__contains__("Master") and not document[byLine+5].text.__contains__("Doctorate") :
-            empty = False
-            fp.write('Missing appropriate degree\n')
+                fp.write('Missing line {by}')
+                fp.write('Fix this first and disregard subsequent errors\n')
+            if not document[byLine+2].text.__contains__("submitted in partial fulfillment") and document[byLine+3].text.__contains__("of the requirements for the degree"):
+                empty = False
+                fp.write('Document must contain proper cause of submission\n')
+            if not document[byLine+4].text == "of":
+                empty = False
+                fp.write('Missing of line prior to appropriate degree\n')
+            if not document[byLine+5].text.__contains__("Master") and not document[byLine+5].text.__contains__("Doctorate") :
+                empty = False
+                fp.write('Missing appropriate degree\n')
 
-        if not document[byLine+6].text == "in":
-            empty = False
-            print(document[byLine+6].text)
-            fp.write('Missing \"in\" line prior to program name\n')
-        if not document[byLine+8].text == "MONTANA STATE UNIVERSITY" :
-            empty = False
-            fp.write('Missing university, or university not formatted correctly (All Capitalized)\n')
-        if not checkDateFormat(document[byLine + 9].text):
-            empty = False
-            print(document[byLine+10].text)
-            fp.write('Date is formatted as month written out and first letter capitalized, then year\n')
-        if not document[byLine+11].text.__contains__("COPYRIGHT"):
-            empty = False
-            fp.write('Missing copyright')
-        if not document[byLine+12].text.__contains__("by"):
-            empty = False
-            fp.write('Missing by after copyright\n')
-        if not document[byLine+13].text == document[byLine+1]:
-            empty = False
-            fp.write('Missing name consistency\n')
-        if not document[byLine+14].text == "Year":
-            empty = False
-            fp.write('Missing year\n')
-        if not document[byLine+15].text == "All Rights Reserved":
-            empty = False
-            fp.write('Missing All Rights Reserved\n')
+            if not document[byLine+6].text == "in":
+                empty = False
+                print(document[byLine+6].text)
+                fp.write('Missing \"in\" line prior to program name\n')
+            if not document[byLine+8].text == "MONTANA STATE UNIVERSITY" :
+                empty = False
+                fp.write('Missing university, or university not formatted correctly (All Capitalized)\n')
+            if not checkDateFormat(document[byLine + 9].text):
+                empty = False
+                print(document[byLine+10].text)
+                fp.write('Date is formatted as month written out and first letter capitalized, then year\n')
+            if not document[byLine+11].text.__contains__("COPYRIGHT"):
+                empty = False
+                fp.write('Missing copyright')
+            if not document[byLine+12].text.__contains__("by"):
+                empty = False
+                fp.write('Missing by after copyright\n')
+            if not document[byLine+13].text == document[byLine+1]:
+                empty = False
+                fp.write('Missing name consistency\n')
+            if not document[byLine+14].text == "Year":
+                empty = False
+                fp.write('Missing year\n')
+            if not document[byLine+15].text == "All Rights Reserved":
+                empty = False
+                fp.write('Missing All Rights Reserved\n')
 
-        if empty:
-            fp.write("All good")
-            fp.close
-            return True
+            if empty:
+                fp.write("All good")
+                fp.close
+                return True
+        except:
+            fp.write("File entirely missed the assignment")
 
         fp.close()
 

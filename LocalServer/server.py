@@ -4,8 +4,6 @@ import shutil
 from flask import *
 from flask import Flask, render_template, request, redirect, url_for
 import fileParser
-# import fileUpload
-# import getResults
 import fileZipHelper
 
 app = Flask(__name__)
@@ -68,15 +66,19 @@ def evaluate_file():
     validate = fileParser.validatorMain()
     validate.parse('Uploads/' + fileToEval)
 
-    shutil.rmtree('Unpacked')
-    os.mkdir('Unpacked')
+    #shutil.rmtree('Unpacked')
+    #os.mkdir('Unpacked')
 
     os.remove('Uploads/' + fileToEval)
+    #os.remove('Unpacked/')
     # When parsing is complete change the green text in send file to the path_evaluated var declared above
     # That should cause the website to download the file the parser spit out
     try:
-        fileZipHelper.send_File('Changes/requiredChanges.txt')
-        return render_template('upload.html')
+        #fileZipHelper.send_File('Changes/requiredChanges.txt')
+        return send_from_directory('Changes/','requiredChanges.txt' )
+        #return re('Changes/requiredChanges.txt')
+
+        #return render_template('upload.html')
         # return send_file('Changes/requiredChanges.txt', as_attachment=True)
     except FileNotFoundError:
         abort(404)
