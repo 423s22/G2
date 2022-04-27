@@ -3,6 +3,9 @@ from pathlib import Path
 import zipfile
 import xml.etree.ElementTree
 import paragraph
+import re
+from spellchecker import SpellChecker
+
 
 
 class validatorMain:
@@ -47,6 +50,7 @@ class validatorMain:
         #    print(i.text)
         #    if i.text == "":
         #        print(i.paraId)
+        print(len(document))
         try:
             for i in range(4): #Ensure the by line exists, and then that the preceeding lines are capitalized. Maximum length = 4 lines.
                 if document[i].text == "by":
@@ -111,10 +115,22 @@ class validatorMain:
             #print(byLine)
             #print(endLine)
             #print(len(body))
+            speller = SpellChecker()
             for j in range(len(body)):
                 if body[j].proofErr:
                     empty = False
+                    wordsList = body[j].text.split()
+                    regex = re.compile('[^a-zA-Z]')
+                    formattedWordList = []
+                    for i in wordsList:
+                        formattedWordList.append( regex.sub('',i))
+                    typos = speller.unknown(formattedWordList)
+                    errorList = ""
+                    for i in typos:
+                        errorList += i
+                        errorList += ", "
                     fp.write('Please check paragraph ' + str(j+byLine) + ' for a typo\n')
+                    fp.write('The following words were detected ' + errorList + '\n')
             if empty:
                 fp.write("All good")
                 fp.close
