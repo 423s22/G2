@@ -42,7 +42,7 @@ class validatorMain:
             #print(i.text)
         self.validate(document)
     def validate(self,document):
-        fp = open('Changes/requiredChanges.txt', 'w')
+        fp = open('changes.txt', 'w')
         empty = True
         byLine = 0
         lineVar = 0
@@ -120,6 +120,11 @@ class validatorMain:
                 if body[j].proofErr:
                     empty = False
                     wordsList = body[j].text.split()
+                    for word in range(len(wordsList)):
+                        if wordsList[word].__contains__('-'):
+                            wordsList.append(wordsList[word][wordsList[word].find('-')+1:])
+                            wordsList[word] = wordsList[word][:wordsList[word].find('-')]
+
                     regex = re.compile('[^a-zA-Z]')
                     formattedWordList = []
                     for i in wordsList:
