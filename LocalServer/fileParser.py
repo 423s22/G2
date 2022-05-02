@@ -59,7 +59,7 @@ class validatorMain:
             for i in range(byLine):
                 if document[i].caps == False:
                     empty = False
-                    fp.write('All title lines must be completely capitalized ')
+                    fp.write('All title lines must be completely capitalized \n')
                     break
             if byLine == 0:
                 empty = False
