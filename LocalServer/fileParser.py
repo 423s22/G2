@@ -42,7 +42,7 @@ class validatorMain:
             #print(i.text)
         self.validate(document)
     def validate(self,document):
-        fp = open('changes.txt', 'w')
+        fp = open('Changes/changes.txt', 'w')
         empty = True
         byLine = 0
         lineVar = 0
