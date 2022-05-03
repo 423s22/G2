@@ -1,34 +1,40 @@
-All title lines must be completely capitalized Please check paragraph 199 for a typo
-The following words were detected , mineralization, reflectance, agroecosystems, n, l, aestivum, cm, triticum, 
+All title lines must be completely capitalized 
+Date is formatted as month written out and first letter capitalized, then year
+Missing by after copyright
+Missing year
+Please check paragraph 199 for a typo
+The following words were detected , reflectance, triticum, l, cm, n, aestivum, mineralization, agroecosystems, 
 Please check paragraph 204 for a typo
-The following words were detected , bockheim, rossel, lilburne, n, kriging, bestwick, ssurgo, cm, odeh, tesfa, 
+The following words were detected , odeh, bestwick, ssurgo, cm, bockheim, n, tesfa, lilburne, rossel, kriging, 
 Please check paragraph 206 for a typo
-The following words were detected biogeochemical, , mineralization, denitrification, odea, grylls, philippot, overfertilization, lilburne, n, 
+The following words were detected , grylls, philippot, mineralization, n, lilburne, biogeochemical, odea, denitrification, overfertilization, 
 Please check paragraph 207 for a typo
-The following words were detected , mineralization, denitrification, meisinger, lysimetry, lilburne, volatilization, n, 
+The following words were detected , meisinger, n, denitrification, lysimetry, lilburne, volatilization, mineralization, 
 Please check paragraph 208 for a typo
-The following words were detected mineralization, , semiarid, benbi, urease, engel, tabatabai, bremner, ammonification, protonated, agroecosystems, volatilization, n, amides, hydrolysis, aminization, nitrification, 
+The following words were detected , protonated, amides, tabatabai, aminization, nitrification, engel, ammonification, bremner, n, urease, volatilization, semiarid, benbi, mineralization, hydrolysis, agroecosystems, 
 Please check paragraph 209 for a typo
-The following words were detected , engel, cations, uexkll, rengel, agroecosystems, volatilization, schroder, nitrification, mutert, 
+The following words were detected , rengel, engel, nitrification, uexkll, mutert, schroder, volatilization, cations, agroecosystems, 
 Please check paragraph 210 for a typo
-The following words were detected , caranto, phototrophs, kozlowski, daims, oxidoreductase, acidifying, kuypers, klotz, ph, leininger, n, comammox, hydroxylamine, nitrification, anoxygenic, 
+The following words were detected , leininger, phototrophs, kozlowski, nitrification, ph, oxidoreductase, n, hydroxylamine, acidifying, caranto, klotz, comammox, kuypers, daims, anoxygenic, 
 Please check paragraph 211 for a typo
-The following words were detected mineralization, , chitin, franzluebbers, incubations, tabatabai, schomberg, mineralizable, n, hydrolysis, d, glucosaminidase, assimilatory, 
+The following words were detected , hydrolysis, tabatabai, incubations, glucosaminidase, mineralizable, schomberg, assimilatory, n, d, chitin, mineralization, franzluebbers, 
 Please check paragraph 212 for a typo
-The following words were detected mineralization, , ngp, galloway, n, kg, zea, l, 
+The following words were detected , kg, l, zea, n, ngp, mineralization, galloway, 
 Please check paragraph 213 for a typo
-The following words were detected ngp, , sativum, rhizobia, medik, dinitrogen, leguminous, bhattacharjee, nitrogenase, culinaris, n, rosenblueth, medicago, l, metalloenzyme, pisum, 
+The following words were detected , leguminous, bhattacharjee, medik, l, n, ngp, sativum, rosenblueth, culinaris, pisum, dinitrogen, nitrogenase, rhizobia, metalloenzyme, medicago, 
 Please check paragraph 214 for a typo
-The following words were detected maier, , dissimilatory, denitrification, dinitrogen, anantharaman, kuypers, n, mackelprang, assimilatory, dissimilation, 
+The following words were detected , anantharaman, maier, assimilatory, n, denitrification, mackelprang, dinitrogen, kuypers, dissimilation, dissimilatory, 
 Please check paragraph 215 for a typo
-The following words were detected anammox, , kumon, denitrification, spott, strous, dinitrogen, tanimoto, selbie, n, hydroxylamine, nitrification, salicylhydroxamic, dissimilation, 
+The following words were detected anammox, , tanimoto, nitrification, n, hydroxylamine, denitrification, salicylhydroxamic, selbie, dinitrogen, spott, strous, kumon, dissimilation, 
 Please check paragraph 218 for a typo
 The following words were detected , lilburne, thapa, n, 
 Please check paragraph 219 for a typo
-The following words were detected , urease, engel, zentner, workloads, vs, volatilization, mikkelsen, 
+The following words were detected , mikkelsen, engel, urease, zentner, vs, volatilization, workloads, 
 Please check paragraph 220 for a typo
-The following words were detected , zillmann, grylls, morari, zillman, dampney, n, bestwick, vazquez, 
+The following words were detected , grylls, morari, bestwick, dampney, n, vazquez, zillmann, zillman, 
 Please check paragraph 221 for a typo
-The following words were detected , complementarity, mineralization, grylls, zillman, n, agronomic, 
+The following words were detected , grylls, n, agronomic, complementarity, mineralization, zillman, 
 Please check paragraph 222 for a typo
-The following words were detected , rossel, generalizability, lacoste, ziadat, ndvi, topographically, geomorphological, vazquez, tesfa, 
+The following words were detected , lacoste, geomorphological, vazquez, tesfa, ndvi, generalizability, rossel, topographically, ziadat, 
+Please check paragraph 223 for a typo
+The following words were detected , agriculturalists, n, ndvi, agroecosystem, mineralization, 

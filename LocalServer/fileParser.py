@@ -42,7 +42,7 @@ class validatorMain:
             #print(i.text)
         self.validate(document)
     def validate(self,document):
-        fp = open('Changes/changes.txt', 'w')
+        fp = open('changes.txt', 'w')
         empty = True
         byLine = 0
         lineVar = 0
@@ -156,4 +156,4 @@ def checkDateFormat(line):
         return False
 if __name__ == '__main__': #Code to test fileParser independently
     validate = validatorMain()
-    validate.parse("Completed_Example_ETD.docx")
+    validate.parse("BadExampleETD2.docx")

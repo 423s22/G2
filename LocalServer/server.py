@@ -75,7 +75,7 @@ def evaluate_file():
     # That should cause the website to download the file the parser spit out
     try:
         #fileZipHelper.send_File('Changes/requiredChanges.txt')
-        return send_from_directory('Changes/','changes.txt' )
+        return send_from_directory('','changes.txt' )
         #return re('Changes/requiredChanges.txt')
 
         #return render_template('upload.html')
