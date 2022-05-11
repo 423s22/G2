@@ -1,0 +1,49 @@
+model Catscript
+
+--Statement Classes
+
+class fileParser
+end
+class fileUpload
+end
+class fileZipHelper
+end
+class getResults
+end
+class paragraph
+end
+class server
+end
+
+
+
+
+--associations
+
+association parseDoc between
+  fileParser [1]
+  fileZipHelper [1]
+end
+
+association upload between
+  server [1]
+  fileUpload [1]
+end
+association fileZipHelp between
+  fileZipHelper [1]
+  fileUpload [1]
+end
+association getResult between
+  fileParser [1]
+  getResults [1]
+end
+association displayResults between
+  getResults [1]
+  server [1]
+end
+association holdData between
+  fileParser [0..*]
+  paragraph [0..*]
+end
+
+
